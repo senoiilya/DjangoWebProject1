@@ -1,0 +1,122 @@
+{% extends "app/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% if form != None %}
+
+<script src="{% static 'app/myScripts/buttonHover.js' %}">
+</script>
+
+<script src="{% static 'app/myScripts/inputFocus.js' %}">
+</script>
+
+<main id="back_image" class="min-vh-100">
+    <section class="w-100 h-100 d-flex flex-column align-items-center justify-content-start">
+        <div class="d-block bg_card text-center rounded-4 my-5">
+            <p class="h2 px-3">Отправьте пожалуйста заполненную анкету</p>
+        </div>
+        <div class="bg_card rounded-4 p-3 mb-3">
+            <div class="mx-auto">
+                <form method="post" class="d-flex flex-column">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.name.id_for_label }}" class="col-form-label">{{ form.name.label }}:</label>
+                        <div class="col">
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}" class="col-form-label">{{ form.email.label }}:</label>
+                        <div class="col">
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.what_like.id_for_label }}" class="col-form-label">{{ form.what_like.label }}</label>
+                        <div class="col">
+                            {{ form.what_like }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.what_imporved.id_for_label }}" class="col-form-label">{{ form.what_imporved.label }}</label>
+                        <div class="col">
+                            {{ form.what_imporved }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.what_add.id_for_label }}" class="col-form-label">{{ form.what_add.label }}</label>
+                        <div class="col">
+                            {{ form.what_add }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.recommend.id_for_label }}" class="col-form-label">{{ form.recommend.label }}</label>
+                        <div class="col">
+                            {{ form.recommend }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.satisfaction_level.id_for_label }}" class="col-form-label">{{ form.satisfaction_level.label }}</label>
+                        <div class="col">
+                            {{ form.satisfaction_level }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.latest_update.id_for_label }}" class="col-form-label">{{ form.latest_update.label }}</label>
+                        <div class="col">
+                            {{ form.latest_update }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.encountered_errors.id_for_label }}" class="col-form-label">{{ form.encountered_errors.label }}</label>
+                        <div class="col">
+                            {{ form.encountered_errors }}
+                        </div>
+                    </div>
+                    <div class="form-group d-block">
+                        <label for="{{ form.error_description.id_for_label }}" class="col-form-label">{{ form.error_description.label }}:</label>
+                        <div class="col">
+                            {{ form.error_description }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input id="input_color" type="submit" class="btn btn-default mt-3 btn_submit" value="Отправить" />
+                    </div>
+                    {% if form.errors %}
+                    <span class="validation-summary-errors"><strong>{{ form.errors }}</strong></span>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% else %}
+
+<main id="back_image" class="min-vh-100">
+    <section class="w-100 h-100 d-flex flex-column align-items-center justify-content-start">
+        <div class="d-block bg_card text-center rounded-4 my-5">
+            <p class="h2 px-3">Благодарим за предоставленную информацию!</p>
+        </div>
+        <div class="d-block bg_card rounded-4 p-3">
+            <p class="h5">Вы сообщили о следущее:</p>
+            <ul class="list-unstyled mb-0">
+                <li><span>Ваше имя:</span> {{ data.name }}</li>
+                <li><span>Ваш e-mail:</span> {{ data.email }}</li>
+                <li><span>Что вам понравилось:</span> {{ data.what_like }}</li>
+                <li><span>Вы предложили добавить:</span> {{ data.what_add }}</li>
+                <li><span>Порекомендуете ли вы нас:</span> {{ data.recommend }}</li>
+                <li><span>Ваша общая оценка удовлетворённости:</span> {{ data.satisfaction_level }}</li>
+                <li><span>Понравилось ли вам последнее обновление:</span> {{ data.latest_update }}</li>
+                <li><span>Встречали ли вы ошибки на сайте:</span> {{ data.encountered_errors }}</li>
+                <li><span>Ваше описание ошибки:</span> {{ data.error_description }}</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+{% endif %}
+
+{% endblock %}

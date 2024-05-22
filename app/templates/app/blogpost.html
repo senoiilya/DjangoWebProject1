@@ -1,0 +1,57 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+
+<main id="back_image" class="">
+    <section class="w-100 h-100 d-flex flex-column align-items-center justify-content-start">
+        <div class="w-50 bg_card rounded-4 p-3 my-5">
+            <div class="mx-auto">
+                <p class="h2 text-center">{{ post_1.title }}</p>
+                {% if post_1.image and post_1.image.url != '/media/temp.jpg' %}
+                    <div>
+                        <img src="{{ post_1.image.url }}" alt="Картинка статьи блога" width="200" />
+                    </div>
+                {% endif %}
+                <p>{{ post_1.content|linebreaksbr }}</p>
+                <p><a href="{% url 'blog' %}">Назад</a></p>
+            </div>
+        </div>
+        <div class="bg_card rounded-4 p-3">
+            <div class="mx-auto">
+                {% if user.is_authenticated %}
+                <p class="h3 text-center">Добавить комментарий</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group d-block">
+                        <label for="{{ form.text.id_for_label }}" class="col-form-label">{{ form.text.label }}:</label>
+                        <div class="col">
+                            {{ form.text }}
+                        </div>
+                    </div>
+                    <div class="form-group d-flex justify-content-center">
+                        <input id="input_color" type="submit" class="btn btn-default mt-3 btn_submit" value="Отправить комментарий" />
+                    </div>
+                </form>
+                {% else %}
+                <p class="h3">Для добавления своего комментария, пожалуйста, авторизируйтесь</p>
+                {% endif %}
+            </div>
+        </div>
+        {% if comments %}
+        <div class="bg_card rounded-4 p-3 my-4">
+            <div class="mx-auto">
+                {% for comment in comments %}
+                <hr />
+                <p class="h6">{{ comment.date }}</p>
+                <p class="h5 text-info">{{ comment.author }}</p>
+                <p class="">{{ comment.text|linebreaksbr }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <div class="mb-3" />
+        {% endif %}
+    </section>
+</main>
+
+{% endblock %}

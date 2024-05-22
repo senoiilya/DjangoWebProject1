@@ -1,0 +1,42 @@
+{% extends 'app/layout.html' %}
+
+
+{% block content %}
+
+<main id="back_image" class="min-vh-100">
+    <section class="w-100 h-100 d-flex flex-column align-items-center justify-content-start">
+        <div class="d-block bg_card text-center rounded-4 my-5">
+            <p class="h2 px-3">{{ title }}</p>
+        </div>
+        <div class="bg_card rounded-4 p-3 mb-3">
+            <div class="mx-auto">
+                <div>
+                    <p class="h2">КУДА БИТЬ ШАР В БИЛЬЯРДЕ? Русский бильярд для начинающих</p>
+                    <video controls="controls" width="400" height="300" poster="/media/">
+                        <source src="/media/ball_in_billiard.mp4" type="video/mp4" />
+                        <source src="file.webm" type="video/webm" />
+                        <source src="file.ogv" type="video/ogg" />
+                    </video>
+                </div>
+                <!--
+                    <div>
+                        <p class="h2">ТЕРМИНОЛОГИЯ В БИЛЬЯРДЕ. Свояк, биток, резка, выход, сила удара и тд</p>
+                        <video controls="controls" width="400" height="300" poster="/media/">
+                            <source src="/media/.mp4" type="video/mp4" />
+                            <source src="file.webm" type="video/webm" />
+                            <source src="file.ogv" type="video/ogg" />
+                        </video>
+                    </div>
+                -->
+                <div>
+                    <p class="h2">ТЕРМИНОЛОГИЯ В БИЛЬЯРДЕ. Свояк, биток, резка, выход, сила удара и тд</p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/y__YtCAUl6A?si=Wnejgz7ij54rMH82" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+{% endblock %}

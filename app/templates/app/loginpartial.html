@@ -1,0 +1,46 @@
+{% load static %}
+
+{% if user.is_authenticated %}
+
+<ul class="navbar-nav top-menu">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">
+            <img src="{% static 'app/images/assets/shopping-cart.png' %}"
+                 alt="cart"
+                 width="24"
+                 height="24"
+                 class="d-inline-block" />
+            Корзина
+        </a>
+    </li>
+</ul>
+
+<form id="logoutForm" action="/logout/" method="post">
+    {% csrf_token %}
+    <ul class="navbar-nav top-menu">
+        <li class="nav-item navbar-text colorway"><strong>Привет, {{ user.username }}!</strong></li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">
+                <img src="{% static 'app/images/assets/log-out.png' %}" alt="log-out" sizes="24" class="d-inline-block" />
+                Выйти
+            </a>
+        </li>
+    </ul>
+</form>
+
+{% else %}
+
+<ul class="navbar-nav top-menu">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">
+            <img src="{% static 'app/images/assets/log-in.png' %}"
+                 alt="log-in"
+                 width="24"
+                 height="24"
+                 class="d-inline-block" />
+            Войти
+        </a>
+    </li>
+</ul>
+
+{% endif %}

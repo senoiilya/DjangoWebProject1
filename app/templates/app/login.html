@@ -1,0 +1,54 @@
+{% extends "app/layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<main id="back_image" class="min-vh-100">
+    <section class="w-100 h-100 d-flex flex-column align-items-center justify-content-start">
+        <div class="d-block bg_card text-center rounded-4 my-5">
+            <p class="h2 px-3">{{ title }}</p>
+        </div>
+        <div class="bg_card rounded-4 p-3 mb-3">
+            <div class="mx-auto">
+                <form action="." method="post" class="d-flex flex-column align-items-center">
+                    {% csrf_token %}
+                    <h6 class="h6">Используйте локальную учетную запись для входа в систему</h6>
+                    <div class="form-group">
+                        <label for="id_username" class="col-form-label">Имя пользователя</label>
+                        <div class="col">
+                            {{ form.username }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password" class="col-form-label">Пароль</label>
+                        <div class="col">
+                            {{ form.password }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!--<input type="hidden" name="next" value="/" />-->
+                        <input type="submit" class="btn btn-default mt-3 btn_submit" value="Войти" />
+                    </div>
+                    {% if form.errors %}
+                    <span class="validation-summary-errors"><strong>Пожалуйста, введите правильное имя пользователя и пароль</strong></span>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        <!--
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+    -->
+    </section>
+</main>
+{% endblock %}
+
+
+{% block scripts %}
+
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}

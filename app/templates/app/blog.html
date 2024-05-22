@@ -1,0 +1,32 @@
+{% extends 'app/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<script src="{% static 'app/myScripts/aHover.js' %}">
+</script>
+<main id="back_image" class="min-vh-100">
+    <section class="d-flex flex-column align-items-center justify-content-start">
+        <div class="d-block bg_card text-center rounded-4 my-5">
+            <p class="h2 px-3">{{ title }}</p>
+        </div>
+        <div class="bg_card w-50 rounded-4 p-3 mb-3">
+            <div class="mx-auto">
+                {% for post in posts %}
+                <hr />
+                <div class="d-flex flex-column">
+                    <p class="h2 text-center">{{ post.title }}</p>
+                    <p class="h5 text-center">{{ post.posted }}</p>
+                    <p class="description_color text-center">{{ post.description }}</p>
+                    <a id="readMore" class="read_more rounded-4 p-1 align-self-center" href="{% url 'blogpost' parametr=post.id %}">Читать далее</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+{% endblock %}

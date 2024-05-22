@@ -1,0 +1,61 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<main id="back_image" class="min-vh-100">
+    <section class="w-100 h-100 text-center d-flex flex-column align-items-center justify-content-start">
+        <div class="d-block bg_card rounded-4 my-5">
+            <p class="h2 px-3">{{ title }}</p>
+        </div>
+        <div class="d-block bg_card rounded-4">
+            <div class="d-flex flex-column p-3 mb-3">
+                <div>
+                    <address>
+                        г. Псков, ул. Ленина, 8<br />
+                        <abbr title="Телефон для связи">Контактный телефон:</abbr> +7(929)134-54-60
+                    </address>
+                </div>
+                <div>
+                    <h5 class="h5">Режим работы</h5>
+                    <p>
+                        ПН-ВС: 10:00 - 18:00
+                        Без перерыва
+                    </p>
+                </div>
+                <div>
+                    <address>
+                        <strong class="h5">Поддержка:</strong><a class="nav-link" href="mailto:ilia.sienskoi@mail.ru">ilia.sienskoi@mail.ru</a>
+                    </address>
+                </div>
+                <div>
+                    <div>
+                        <span>Вконтакте:</span>
+                        <a href="https://vk.com/isett">
+                            <img
+                                src="{% static '/app/images/socialNet/vk.png' %}"
+                                alt="vk"
+                                width="24"
+                                height="24"
+                            />
+                        </a>
+                    </div>
+                    <div>
+                        <span>Telegram:</span>
+                        <a href="https://vk.com/isett">
+                            <img
+                                src="{% static 'app/images/socialNet/telegram-icon.png' %}"
+                                alt="tg"
+                                width="24"
+                                height="24"
+                                />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

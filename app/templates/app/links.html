@@ -1,0 +1,35 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<main id="back_image" class="min-vh-100">
+    <section class="w-100 h-100 text-center d-flex flex-column align-items-center justify-content-start">
+        <div class="d-block bg_card rounded-4 my-5"><p class="h2 px-3">{{ title }}</p></div>
+        <div class="d-block bg_card rounded-4">
+            <div class="d-flex flex-column p-3 mb-3">
+                <div class="mb-3">
+                    <a class="d-inline-block" href="https://www.luza.ru/" target="_blank">
+                        <img src="{% static 'app/images/logos/logoLuza.png' %}" alt="Logo 1" height="84" width="108" />
+                    </a>
+                </div>
+                <div class="mb-3">
+                    <a class="d-inline-block" href="https://bs1991.ru/" target="_blank">
+                        <img src="{% static 'app/images/logos/logo2.png' %}" alt="Logo 2" height="96" width="120" />
+                    </a>
+                </div>
+                <div>
+                    <a class="d-inline-block" href="https://billiard-prof.ru/" target="_blank">
+                        <img src="{% static 'app/images/logos/logo3.png' %}" alt="Logo 3" height="29" width="183" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+{% endblock  %}
+

@@ -1,0 +1,228 @@
+/* SOURCE */
+
+:root {
+    --primary-green: #00624a;
+    --primary-logo: rgb(233, 250, 134);
+    --primary-text-two: rgb(233, 250, 134);
+    --primary-red: rgb(238, 33, 33);
+    --primary-text: white;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+/* BODY */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+#container_section {
+    width: 100%;
+    height: 100vh;
+}
+
+#back_image {
+    background-image: url(../images/assets/billiard1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+    /*width: 100%; */
+    /* height: 100%; */
+
+/* FOR BOOTSTRAP */
+
+.b-color {
+    background-color: var(--primary-green);
+    color: var(--primary-text-two);
+}
+/* Navbar */
+.navbar .navbar-nav .nav-item .nav-link {
+    color: var(--primary-text-two);
+}
+
+.navbar-dark {
+    color: var(--primary-text-two);
+}
+/* End Navbar */
+
+/* Top menu */
+.top-menu li a::after {
+    content: "";
+    display: block;
+    width: 100%;
+    background-color: var(--primary-text-two);
+    height: 1px;
+    transition: all 0.4s;
+    transform: scale(0);
+}
+
+.top-menu li a:hover::after {
+    transform: scale(1);
+}
+
+.top-menu span::after {
+    content: "";
+    display: block;
+    width: 100%;
+    background-color: var(--primary-text-two);
+    height: 1px;
+    transition: all 0.4s;
+    transform: scale(0);
+}
+
+.top-menu span:hover::after {
+    transform: scale(1);
+}
+
+a > img {
+    cursor: pointer;
+}
+/* End Top menu */
+
+/* Carousel */
+.my-carousel {
+    padding: 0;
+}
+
+    .my-carousel .carousel-item {
+        display: flex;
+        max-height: 700px;
+    }
+
+        .my-carousel .carousel-item img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+/* End Carousel */
+
+/* Footer */
+
+.footer {
+    color: var(--primary-text-two);
+    background-color: var(--primary-green);
+}
+
+    .footer h5 {
+        text-transform: uppercase;
+        font-size: 16px;
+        border-bottom: 1px solid rgb(233, 250, 134);
+        padding-bottom: 4px;
+    }
+
+    .footer a {
+        color: whitesmoke;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+        .footer a:hover {
+            color: rgb(233, 250, 134);
+            text-decoration: underline;
+        }
+
+    .footer li {
+        color: whitesmoke;
+    }
+
+        .footer li a {
+            display: block;
+        }
+
+.footer-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+    .footer-icons a img {
+        cursor: pointer;
+    }
+/* End Footer */
+
+/* CONTACT in MAIN  */
+
+.bg_card {
+    color: var(--primary-text-two) !important;
+    background-color: var(--primary-green);
+    box-sizing: border-box;
+}
+
+/* pool.htnl*/
+
+.btn_submit {
+    color: #004030 !important;
+    background-color: var(--primary-text-two) !important;
+    border: 2px solid !important;
+    border-color: #004030 !important;
+}
+
+
+.btn_hover {
+    color: var(--primary-text-two) !important;
+    background-color: #004030 !important;
+    border-color: var(--primary-text-two) !important;
+}
+
+.input_background {
+    color: var(--primary-text-two) !important;
+    background-color: #004030 !important;
+}
+
+/*
+.btn_submit:hover {
+    color: var(--primary-text-two) !important;
+    background-color: #004030 !important;
+    border-color: var(--primary-text-two) !important;
+}
+*/
+
+/* end pool.html */
+
+.colorway {
+    color: yellow !important;
+}
+
+/* BLOG and BLOGPOST */
+
+.description_color {
+    color: whitesmoke !important;
+}
+
+.read_more {
+    text-decoration: none;
+    color: #004030;
+    background-color: var(--primary-text-two);
+    border: 2px solid;
+    border-color: #004030;
+}
+
+.read_more_hover {
+    text-decoration: none;
+    color: var(--primary-text-two);
+    background-color: #004030;
+    border: 2px solid;
+    border-color: var(--primary-text-two);
+}
+
+/* END BLOG and BLOGPOST */
